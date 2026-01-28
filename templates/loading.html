@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Recommendations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .loading-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4361ee;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <h2>Generating Your Career Recommendations</h2>
+        <p>This may take a few moments...</p>
+        
+        <form id="generateForm" method="POST" action="/generate">
+            <input type="hidden" name="name" value="{{ user_data.name }}">
+            <input type="hidden" name="age" value="{{ user_data.age }}">
+            <input type="hidden" name="qualifications" value="{{ user_data.qualifications }}">
+            <input type="hidden" name="skills" value="{{ user_data.skills }}">
+            <input type="hidden" name="interests" value="{{ user_data.interests }}">
+            <input type="hidden" name="location" value="{{ user_data.location }}">
+            <input type="hidden" name="goal" value="{{ user_data.goal }}">
+        </form>
+        
+        <script>
+            setTimeout(function() {
+                document.getElementById('generateForm').submit();
+            }, 2000);
+        </script>
+    </div>
+</body>
+</html>

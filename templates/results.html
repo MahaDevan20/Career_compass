@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Roadmap | Career Compass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #f8fafc;
+            --muted: #94a3b8;
+        }
+        
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0f172a;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .profile-summary {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: -40px auto 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-item label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .profile-item span {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .card-header {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        
+        .card-body p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: rgba(76, 201, 240, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+        }
+        
+        .card-footer {
+            padding: 24px 30px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: scale(1.02);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: white;
+        }
+        
+        .page-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .profile-summary { grid-template-columns: 1fr 1fr; }
+            .page-actions { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>Expert Recommendations</h1>
+            <p style="color: var(--muted)">We've curated these paths based on your unique expertise and goals</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="profile-summary">
+            <div class="profile-item">
+                <label>Professional</label>
+                <span>{{ user_data.name }}</span>
+            </div>
+            <div class="profile-item">
+                <label>Objective</label>
+                <span>{{ user_data.goal }}</span>
+            </div>
+            <div class="profile-item">
+                <label>Focus Area</label>
+                <span>{{ user_data.interests }}</span>
+            </div>
+            <div class="profile-item">
+                <label>Experience</label>
+                <span>{{ user_data.qualifications }}</span>
+            </div>
+        </div>
+        
+        <div class="grid">
+            {% for recommendation in recommendations %}
+            <div class="card">
+                <div class="card-header">
+                    <h3>{{ recommendation.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <p>{{ recommendation.overview }}</p>
+                    
+                    {% if user_data.goal == "Higher Studies" %}
+                        <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--muted)">Key Institutions</label>
+                        <div class="tag-list">
+                            {% for inst in recommendation.institutions %}
+                                <span class="tag">{{ inst }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <label style="font-size: 0.7rem; text-transform: uppercase; color: var(--muted)">Market Snapshot</label>
+                        <div style="margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px;">
+                                <small style="color: var(--muted); display: block;">Salary</small>
+                                <span style="font-size: 0.9rem;">{{ recommendation.salary_range }}</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px;">
+                                <small style="color: var(--muted); display: block;">Growth</small>
+                                <span style="font-size: 0.9rem;">{{ recommendation.growth }}</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <form method="POST" action="/recommendation_detail">
+                        <input type="hidden" name="index" value="{{ loop.index0 }}">
+                        <input type="hidden" name="goal" value="{{ user_data.goal }}">
+                        
+                        <!-- User data -->
+                        <input type="hidden" name="name" value="{{ user_data.name }}">
+                        <input type="hidden" name="age" value="{{ user_data.age }}">
+                        <input type="hidden" name="qualifications" value="{{ user_data.qualifications }}">
+                        <input type="hidden" name="skills" value="{{ user_data.skills }}">
+                        <input type="hidden" name="interests" value="{{ user_data.interests }}">
+                        <input type="hidden" name="location" value="{{ user_data.location }}">
+                        
+                        <!-- Recommendation data -->
+                        {% for r in recommendations %}
+                            <input type="hidden" name="rec_{{ loop.index0 }}_title" value="{{ r.title }}">
+                            <input type="hidden" name="rec_{{ loop.index0 }}_overview" value="{{ r.overview }}">
+                            <input type="hidden" name="rec_{{ loop.index0 }}_details" value="{{ r.details }}">
+                            <input type="hidden" name="rec_{{ loop.index0 }}_pros" value="{{ r.pros|join('|') }}">
+                            <input type="hidden" name="rec_{{ loop.index0 }}_cons" value="{{ r.cons|join('|') }}">
+                            <input type="hidden" name="rec_{{ loop.index0 }}_resources" value="{{ r.resources|join('|') }}">
+                            
+                            {% if user_data.goal == "Higher Studies" %}
+                                <input type="hidden" name="rec_{{ loop.index0 }}_institutions" value="{{ r.institutions|join('|') }}">
+                            {% else %}
+                                <input type="hidden" name="rec_{{ loop.index0 }}_companies" value="{{ r.companies|join('|') }}">
+                                <input type="hidden" name="rec_{{ loop.index0 }}_salary" value="{{ r.salary_range }}">
+                                <input type="hidden" name="rec_{{ loop.index0 }}_growth" value="{{ r.growth }}">
+                                <input type="hidden" name="rec_{{ loop.index0 }}_skills_needed" value="{{ r.skills_needed|join('|') }}">
+                            {% endif %}
+                        {% endfor %}
+                        
+                        <button type="submit" class="btn">Analyze Path <i class="fas fa-microscope"></i></button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="page-actions">
+            <form method="POST" action="/download_report">
+                <input type="hidden" name="name" value="{{ user_data.name }}">
+                <input type="hidden" name="age" value="{{ user_data.age }}">
+                <input type="hidden" name="qualifications" value="{{ user_data.qualifications }}">
+                <input type="hidden" name="skills" value="{{ user_data.skills }}">
+                <input type="hidden" name="interests" value="{{ user_data.interests }}">
+                <input type="hidden" name="location" value="{{ user_data.location }}">
+                <input type="hidden" name="goal" value="{{ user_data.goal }}">
+                {% for r in recommendations %}
+                    <input type="hidden" name="rec_{{ loop.index0 }}_title" value="{{ r.title }}">
+                    <input type="hidden" name="rec_{{ loop.index0 }}_overview" value="{{ r.overview }}">
+                    <input type="hidden" name="rec_{{ loop.index0 }}_details" value="{{ r.details }}">
+                    {% if user_data.goal == "Higher Studies" %}
+                        <input type="hidden" name="rec_{{ loop.index0 }}_institutions" value="{{ r.institutions|join('|') }}">
+                    {% else %}
+                        <input type="hidden" name="rec_{{ loop.index0 }}_companies" value="{{ r.companies|join('|') }}">
+                        <input type="hidden" name="rec_{{ loop.index0 }}_salary" value="{{ r.salary_range }}">
+                        <input type="hidden" name="rec_{{ loop.index0 }}_growth" value="{{ r.growth }}">
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="btn" style="width: auto;"><i class="fas fa-file-pdf"></i> Download PDF Summary</button>
+            </form>
+            <a href="/" class="btn btn-outline" style="width: auto;"><i class="fas fa-redo"></i> Redo Analysis</a>
+        </div>
+    </div>
+</body>
+</html>
